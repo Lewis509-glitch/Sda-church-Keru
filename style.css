@@ -189,6 +189,7 @@
     }
     @media (max-width: 768px) {
         .nav-links { display: none; }
+        .hero { height: 100vh;
         .hero h1 { font-size: 2.5rem; }
         .top-bar { flex-direction: column; text-align: center; gap: 0.5rem; }
         .logo span { display: none; } /* On very small screens, hide text and just show logo */
