@@ -1,0 +1,193 @@
+
+    :root {
+        --primary-color: #1e3a8a; /* Deep Blue */
+        --secondary-color: #fbbf24; /* Warm Gold */
+        --bg-light: #f8fafc;
+        --text-dark: #0f172a;
+        --text-light: #64748b;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+    }
+    body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-dark);
+        background-color: var(--bg-light);
+        line-height: 1.6;
+    }
+    /* Top Info Bar */
+    .top-bar {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.85rem;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .top-bar .highlight {
+        color: var(--secondary-color);
+        font-weight: 600;
+    }
+    /* Navigation */
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+    /* Updated Logo Styles */
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+    .logo img {
+        height: 45px; /* Adjusts the size of the SDA logo */
+        width: auto;
+    }
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+    }
+    .nav-links a {
+        text-decoration: none;
+        color: var(--text-dark);
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+        color: var(--primary-color);
+    }
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.7)), url('/photo.jpg') center/cover;
+        color: white;
+        text-align: center;
+        padding: 8rem 2rem;
+    }
+    .hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        opacity: 0.9;
+    }
+    .btn {
+        display: inline-block;
+        background-color: var(--secondary-color);
+        color: var(--text-dark);
+        padding: 0.8rem 2rem;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: background 0.3s;
+    }
+    .btn:hover {
+        background-color: #f59e0b;
+    }
+    /* Mission Section */
+    .mission {
+        padding: 5rem 2rem;
+        text-align: center;
+        background: white;
+    }
+    .mission h2 {
+        font-family: 'Playfair Display', serif;
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .mission p {
+        max-width: 800px;
+        margin: 0 auto;
+        color: var(--text-light);
+        font-size: 1.1rem;
+    }
+    /* Ministries Section */
+    .ministries {
+        padding: 5rem 2rem;
+        background-color: var(--bg-light);
+    }
+    
+    .section-title {
+        text-align: center;
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 3rem;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        text-align: center;
+        transition: transform 0.3s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+    }
+    .card h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+    /* Scripture Banner */
+    .scripture {
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+        padding: 4rem 2rem;
+        font-family: 'Playfair Display', serif;
+    }
+    .scripture h3 {
+        font-size: 2rem;
+        font-style: italic;
+        max-width: 800px;
+        margin: 0 auto 1rem;
+    }
+    /* Footer */
+    footer {
+        background-color: #0f172a;
+        color: white;
+        text-align: center;
+        padding: 3rem 2rem;
+    }
+    footer p {
+        opacity: 0.7;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+    }
+    @media (max-width: 768px) {
+        .nav-links { display: none; }
+        .hero h1 { font-size: 2.5rem; }
+        .top-bar { flex-direction: column; text-align: center; gap: 0.5rem; }
+        .logo span { display: none; } /* On very small screens, hide text and just show logo */
+    }
