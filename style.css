@@ -60,6 +60,13 @@
         height: 45px; /* Adjusts the size of the SDA logo */
         width: auto;
     }
+
+    .menu {
+        font-size: 2.2rem;
+        /* display: none; */
+        visibility: hidden;
+    }
+
     .nav-links {
         display: flex;
         gap: 2rem;
@@ -186,8 +193,37 @@
         margin-top: 1rem;
     }
     @media (max-width: 768px) {
-        .nav-links { display: none; }
-        .hero h1 { font-size: 2.5rem; }
-        .top-bar { flex-direction: column; text-align: center; gap: 0.5rem; }
-        .logo span { display: none; } /* On very small screens, hide text and just show logo */
+        .menu {
+            visibility: visible;
+            float: right;
+            right: 2rem;
+            position: absolute;
+        }
+        .nav-links {
+            display: none;
+            flex-direction: column;
+        }
+
+        .nav-links.show {
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+        .top-bar {
+            flex-direction: column; 
+            text-align: center; 
+            gap: 0.5rem; 
+        }
+        .logo span { 
+            display: none; 
+        } /* On very small screens, hide text and just show logo */
+        .more {
+            display: inline;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: 8rem;
+        }
     }

@@ -1,4 +1,9 @@
-const button = document.querySelector(".btn")
+const button = document.querySelector(".btn");
+const menu = document.querySelector(".menu");
+
+menu.addEventListener("click", () => {
+    nav.classList.toggle(".show")
+});
 
 button.addEventListener('click', () => {
     alert("Feature coming soon")
