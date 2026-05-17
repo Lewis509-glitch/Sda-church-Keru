@@ -64,7 +64,7 @@
     .menu {
         font-size: 50px;
         /* display: none; */
-        visibility: hidden;
+        position: relative;
         cursor: pointer;
     }
 
