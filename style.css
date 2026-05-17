@@ -197,8 +197,7 @@
     }
     @media (max-width: 768px) {
         .menu {
-            visibility: visible;
-            float: right;
+            display: block;
             right: 2rem;
             position: absolute;
         }
