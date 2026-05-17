@@ -220,13 +220,13 @@
             gap: 0.5rem; 
         }
         .logo span { 
-            display: none; 
+            /* display: none;  */
         } /* On very small screens, hide text and just show logo */
         .join {
             display: inline;
             justify-content: center;
             align-items: center;
             position: absolute;
-            right: 5rem;
+            right: 7rem;
         }
     }
