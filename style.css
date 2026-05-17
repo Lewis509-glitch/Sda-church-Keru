@@ -62,7 +62,7 @@
     }
 
     .menu {
-        font-size: 2.2rem;
+        font-size: 50px;
         /* display: none; */
         visibility: hidden;
         cursor: pointer;
@@ -222,11 +222,11 @@
         .logo span { 
             display: none; 
         } /* On very small screens, hide text and just show logo */
-        .more {
+        .join {
             display: inline;
             justify-content: center;
             align-items: center;
             position: absolute;
-            left: 8rem;
+            right: 5rem;
         }
     }
