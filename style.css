@@ -55,6 +55,7 @@
         font-weight: 700;
         color: var(--primary-color);
         text-decoration: none;
+        position: relative;
     }
     .logo img {
         height: 45px; /* Adjusts the size of the SDA logo */
@@ -64,6 +65,7 @@
     .menu {
         font-size: 50px;
         /* display: none; */
+        visibility: hidden;
         position: relative;
         cursor: pointer;
     }
@@ -218,8 +220,15 @@
             text-align: center; 
             gap: 0.5rem; 
         }
+
+        .logo {
+            flex-direction: column;
+        }
         .logo span { 
             /* display: none;  */
+            
+            font-size: 1rem;
+            position: absolute;
         } /* On very small screens, hide text and just show logo */
         .join {
             display: inline;
