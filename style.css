@@ -227,7 +227,7 @@
         .logo span { 
             /* display: none;  */
             
-            font-size: 1rem;
+            font-size: .5rem;
             position: absolute;
         } /* On very small screens, hide text and just show logo */
         .join {
