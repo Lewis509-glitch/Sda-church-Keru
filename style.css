@@ -231,7 +231,7 @@
             position: absolute;
         } /* On very small screens, hide text and just show logo */
         .join {
-            display: inline;
+            display: none;
             justify-content: center;
             align-items: center;
             position: absolute;
