@@ -107,7 +107,7 @@
         background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.7)), url('/photo.jpg') center/cover fixed;
         color: white;
         text-align: center;
-        padding: 8rem 2rem;
+        padding: 5rem 2rem;
         height: 100vh;
         display: flex;
         flex-direction: column;
