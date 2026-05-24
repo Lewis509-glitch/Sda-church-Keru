@@ -56,6 +56,7 @@
         color: var(--primary-color);
         text-decoration: none;
         position: relative;
+        left: 5px;
     }
     .logo img {
         height: 45px; /* Adjusts the size of the SDA logo */
@@ -230,6 +231,7 @@
             display: block;
             right: 2rem;
             position: absolute;
+            visibility: visible;
         }
         /* ... your other mobile styles ... */
 
@@ -249,7 +251,7 @@
             font-size: 1.5rem; /* Increased from 10px for better mobile readability */
             text-align: center;
             height: 4rem;
-            border-top: 2px solid var(--primary-color);
+            border-top: 4px solid var(--primary-color);
             border-top-right-radius: 10px;
             border-top-left-radius: 10px;
             padding-block: 30px;
@@ -274,9 +276,9 @@
             gap: 0.5rem; 
         }
 
-        /* .logo {
-            flex-direction: column;
-        } */
+        .logo {
+            left: 2px;
+        }
         .logo span { 
             /* display: none;  */
             
