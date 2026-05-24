@@ -63,6 +63,22 @@
         width: auto;
     }
 
+    .announcements {
+        position: absolute;
+        right: 10rem;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+    }
+    
+    .announcements li {
+        list-style: none;
+    }
+    .announcements a {
+        font-weight: 600;
+        color: var(--text-dark);
+        list-style: none;
+    }
+
     .menu {
         font-size: 50px;
         /* display: none; */
@@ -232,6 +248,13 @@
             right: 2rem;
             position: absolute;
             visibility: visible;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .announcements {
+            position: absolute;
+            right: 5rem;
         }
         /* ... your other mobile styles ... */
 
@@ -291,6 +314,9 @@
             align-items: center;
             position: absolute;
             right: 8rem;
+        }
+        .announcements span {
+            display: none;
         }
         
     }
