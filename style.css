@@ -251,6 +251,7 @@
             height: 4rem;
             border-top: 2px solid var(--primary-color);
             border-radius: 10px;
+            padding-block: 30px;
         }
         
         .nav-links span {
