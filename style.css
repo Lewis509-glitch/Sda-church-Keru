@@ -300,6 +300,7 @@
     }
 
     @media (max-width: 768px) {
+
         .menu {
             display: block;
             right: 2rem;
@@ -345,7 +346,11 @@
             align-items: center;
             text-align: center;
         }
-        /* ... remainder of your media query ... */
+
+        .hero {
+            padding: 4rem 1rem;
+            
+        }
         
         .hero h1 {
             font-size: 2.5rem;
