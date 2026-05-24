@@ -109,10 +109,6 @@
         text-align: center;
         padding: 5rem 2rem;
         height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         min-width: 100%;
     }
     .hero h1 {
