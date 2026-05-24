@@ -71,6 +71,7 @@
     }
 
     .nav-links {
+        position: relative;
         display: flex;
         gap: 2rem;
         list-style: none;
@@ -197,6 +198,33 @@
         font-size: 0.9rem;
         margin-top: 1rem;
     }
+
+    .mobile-menu {
+        visibility: hidden;
+    }
+
+    .about {
+        padding: 5rem 2rem;
+        background: white;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .about h1 {
+        font-family: 'Playfair Display', serif;
+        color: var(--primary-color);
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .about p {
+        color: var(--text-light);
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid var(--bg-light);
+        padding-bottom: 1rem;
+    }
+
     @media (max-width: 768px) {
         .menu {
             display: block;
@@ -204,14 +232,11 @@
             position: absolute;
         }
         .nav-links {
-            display: none;
-            flex-direction: column;
+            position: absolute;
+            display: inline-flex;
+            bottom: -800%;
         }
-
-        .nav-links.show {
-            display: block;
-        }
-
+        
         .hero h1 {
             font-size: 2.5rem;
         }
@@ -237,4 +262,5 @@
             position: absolute;
             right: 8rem;
         }
+        
     }
