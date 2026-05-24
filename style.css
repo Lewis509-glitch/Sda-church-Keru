@@ -231,13 +231,35 @@
             right: 2rem;
             position: absolute;
         }
+        /* ... your other mobile styles ... */
+
         .nav-links {
             position: fixed;
-            display: inline-flex;
             bottom: 0;
-            background: var(--bg-light);
-            width: 100vw;
+            left: 0; /* Explicitly anchor to the left edge */
+            width: 100vw; /* Safer than 100vw to avoid horizontal scrollbars */
+            display: flex; /* Flex is better than inline-flex for full-width containers */
+            justify-content: center; /* Centers the links horizontally */
+            align-items: center;
+             /* Essential for mobile touch targets */
+            gap: 1rem; /* Spreads out the links */
+            background-color: var(--bg-light);
+            z-index: 1000; /* Ensures it stays on top of the hero section */
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05); /* Optional: adds a nice top shadow to separate it from content */
+            font-size: 1.5rem; /* Increased from 10px for better mobile readability */
+            text-align: center;
+            height: 4rem;
         }
+        
+        .nav-links span {
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            text-align: center;
+        }
+        /* ... remainder of your media query ... */
         
         .hero h1 {
             font-size: 2.5rem;
