@@ -269,6 +269,13 @@
     .location {
         width: 100%;
     }
+    .location h1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--primary-color);
+        font-size: 2.5rem;
+    }
     .location iframe {
         width: 90vw;
         min-width: 100%;
