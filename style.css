@@ -277,7 +277,7 @@
     footer .subscribe button:hover {
         background-color: #f59e0b;
     }
-    
+
     footer .social-links {
         display: flex;
         justify-content: center;
@@ -423,6 +423,7 @@
             padding-block: 30px;
         }
         
+        
         .nav-links span {
             font-size: 0.8rem;
             display: flex;
@@ -465,5 +466,23 @@
         .announcements span {
             display: none;
         }
+        footer {
+            height: auto;
+            padding: 2rem 1rem;
+        }
+        footer h2 {
+            font-size: 1.8rem;
+        }
+        footer h3 {
+            font-size: 1.2rem;
+        }
+        footer .contact-info {
+            font-size: 1rem;
+        }
+        footer .subscribe {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
         
     }

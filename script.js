@@ -1,12 +1,17 @@
 const button = document.querySelector(".btn");
 const menu = document.querySelector(".menu");
+const nav = document.querySelector(".nav");
+const navLinks = document.querySelectorAll(".nav a");
 
 menu.addEventListener("click", () => {
     nav.classList.toggle("active");
-    
+    nav.classList.toggle("nav-active");
+    nav.classList.toggle("nav-inactive");
+
    
-    alert("Coming Soon!!!");
+    // alert("Coming Soon!!!");
 });
+
 
 button.addEventListener('click', () => {
     alert("Feature coming soon")
