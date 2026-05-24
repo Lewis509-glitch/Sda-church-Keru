@@ -3,6 +3,7 @@ const menu = document.querySelector(".menu");
 
 menu.addEventListener("click", () => {
     nav.classList.toggle(".show")
+    alert("Coming Soon!!!")
 });
 
 button.addEventListener('click', () => {
