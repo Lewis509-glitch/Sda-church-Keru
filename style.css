@@ -239,10 +239,10 @@
             left: 0; /* Explicitly anchor to the left edge */
             width: 100vw; /* Safer than 100vw to avoid horizontal scrollbars */
             display: flex; /* Flex is better than inline-flex for full-width containers */
-            justify-content: center; /* Centers the links horizontally */
+            justify-content: space-between; /* Centers the links horizontally */
             align-items: center;
              /* Essential for mobile touch targets */
-            gap: 1.5rem; /* Spreads out the links */
+            gap: 1rem; /* Spreads out the links */
             background-color: var(--bg-light);
             z-index: 1000; /* Ensures it stays on top of the hero section */
             box-shadow: 0 -2px 10px rgba(0,0,0,0.05); /* Optional: adds a nice top shadow to separate it from content */
