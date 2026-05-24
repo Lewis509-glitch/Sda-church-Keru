@@ -279,6 +279,7 @@
     .location iframe {
         width: 90vw;
         min-width: 100%;
+        height: 80vh;
     }
 
     .sermons {
