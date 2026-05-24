@@ -232,9 +232,9 @@
             position: absolute;
         }
         .nav-links {
-            position: absolute;
+            position: fixed;
             display: inline-flex;
-            bottom: -800%;
+            bottom: 0;
         }
         
         .hero h1 {
