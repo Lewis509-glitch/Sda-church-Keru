@@ -261,6 +261,11 @@
         font-size: 2.3rem;
     }
 
+    .ann-sect p {
+        font-size: 2rem;
+        color: var(--text-dark);
+    }
+
     @media (max-width: 768px) {
         .menu {
             display: block;
