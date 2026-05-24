@@ -249,6 +249,8 @@
             font-size: 1.5rem; /* Increased from 10px for better mobile readability */
             text-align: center;
             height: 4rem;
+            border-top: 2px solid var(--primary-color);
+            border-radius: 10px;
         }
         
         .nav-links span {
