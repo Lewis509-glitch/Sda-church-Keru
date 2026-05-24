@@ -239,7 +239,7 @@
             left: 0; /* Explicitly anchor to the left edge */
             width: 100vw; /* Safer than 100vw to avoid horizontal scrollbars */
             display: flex; /* Flex is better than inline-flex for full-width containers */
-            justify-content: space-between; /* Centers the links horizontally */
+            justify-content: space-evenly; /* Centers the links horizontally */
             align-items: center;
              /* Essential for mobile touch targets */
             gap: 0.5rem; /* Spreads out the links */
