@@ -70,9 +70,6 @@
         color: var(--text-dark);
     }
     
-    .announcements li {
-        list-style: none;
-    }
     .announcements a {
         font-weight: 600;
         color: var(--text-dark);
