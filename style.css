@@ -495,7 +495,7 @@
             margin: 0 auto;
             text-align: center;
         }
-        footer .links, footer .resources {
+        /* footer .links, footer .resources {
             align-items: center;
         }
         footer .links ul, footer .resources ul {
@@ -506,7 +506,7 @@
         }
         footer .links a, footer .resources a {
             font-size: 1.2rem;
-        }
+        } */
         footer .copy {
             position: static;
             margin-top: 1rem;
