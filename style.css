@@ -296,7 +296,7 @@
     footer button:hover {
         background-color: #f59e0b;
     }
-
+    
 
 
     footer .copy {
@@ -306,6 +306,16 @@
         color: var(--text-light);
         margin-top: 1rem;
     }
+    footer .copy a {
+        color: var(--text-light);
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+    footer .copy a:hover {
+        color: var(--secondary-color);
+    }
+
 
     .mobile-menu {
         visibility: hidden;
