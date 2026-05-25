@@ -52,11 +52,21 @@ document.addEventListener("click", (e) => {
     }
 });
 
-screen.orientation.addEventListener("change", () => {
-  if (screen.orientation.type.includes('landscape')) {
-    alert("Please rotate your device back to portrait!");
+function checkOrientation() {
+  const isLandscape = window.innerWidth > window.innerHeight;
+  
+  if (isLandscape) {
+    // Logic to hide elements or show a "Please Rotate" overlay
+    document.body.style.display = 'none';
+  } else {
+    document.body.style.display = 'block';
   }
-});
+}
+
+// Listen for resize or orientation changes
+window.addEventListener('resize', checkOrientation);
+window.addEventListener('orientationchange', checkOrientation);
+
 
 
 // 4. Auto-close when the user scrolls
