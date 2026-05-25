@@ -222,9 +222,11 @@
         border-top-right-radius: 50px;
         bottom: 0;
     }
-    .footer-content {
-        max-width: 800px;
-        margin: 0 auto;
+    .footer-contact {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        font-size: 1.1rem;
     }
     
     .mobile-menu {
