@@ -36,7 +36,7 @@
     /* Navigation */
     nav {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
         padding: 1rem 2rem;
         background: white;
@@ -68,6 +68,7 @@
         right: 10rem; */
         font-size: 1.5rem;
         color: var(--text-dark);
+        margin-inline: 1.5px;
     }
     
     .announcements a {
@@ -103,7 +104,7 @@
         color: var(--text-dark);
         font-weight: 600;
         text-decoration: none;
-        font-size: 1rem;
+        font-size: 0.89rem;
     }
     aside .side-menu a:hover {
         color: var(--secondary-color);
@@ -111,7 +112,7 @@
     }
 
      .join {
-         display: none;
+         display: flex;
          justify-content: center;
          align-items: center;
          right: 30%;
@@ -139,7 +140,7 @@
     .nav-links {
         position: relative;
         display: flex;
-        gap: 2rem;
+        gap: 1rem;
         list-style: none;
     }
     .nav-links a {
@@ -370,9 +371,7 @@
     }
 
 
-    .mobile-menu {
-        visibility: hidden;
-    }
+   
 
     .about {
         padding: 5rem 2rem;
@@ -454,7 +453,7 @@
         height: 100%;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 888px) {
 
         .menu {
             display: block;
