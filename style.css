@@ -394,7 +394,7 @@
             display: none;
         }
         footer {
-            
+            padding-bottom: 2rem;
             flex-direction: column;
         }
         
