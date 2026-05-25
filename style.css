@@ -510,7 +510,7 @@
         footer .copy {
             position: static;
             margin-top: 1rem;
-            bottom: 1rem;
+            bottom: .3rem;
         }
         
     }
