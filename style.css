@@ -393,9 +393,9 @@
         .announcements span {
             display: none;
         }
-        footer {
+        /* footer {
             display: flex;
             flex-direction: column-reverse;
-        }
+        } */
         
     }
