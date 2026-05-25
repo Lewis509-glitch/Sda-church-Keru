@@ -304,10 +304,14 @@
         bottom: 1rem;
         font-size: 0.9rem;
         color: var(--text-light);
-        margin-top: 1rem;
+        align-items: center;
+        left: 50%;
+        transform: translateX(-50%);
     }
+
     footer .copy a {
-        color: var(--text-light);
+        font-weight: 600;
+        color: var(--secondary-color);
         text-decoration: none;
         font-weight: 600;
         transition: color 0.3s ease;
@@ -508,6 +512,7 @@
             font-size: 1.2rem;
         } */
         footer .copy {
+
             position: absolute;
             margin-top: 1rem;
             bottom: 6rem;
