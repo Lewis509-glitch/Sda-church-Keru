@@ -205,16 +205,17 @@
     }
     /* Footer */
     footer {
+        position: relative;
         background-color: #0f172a;
         color: white;
         text-align: center;
         padding: 3rem 2rem;
         display: inline-flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: top;
         flex-direction: row;
         width: 100%;
-        
+        padding-top: 5rem;
         height: 80vh;
         min-height: 100%;
         border-top-left-radius: 50px;
@@ -391,6 +392,10 @@
         }
         .announcements span {
             display: none;
+        }
+        footer {
+            display: flex;
+            flex-direction: column-reverse;
         }
         
     }
