@@ -494,8 +494,7 @@
             justify-content: center;
             align-items: center;
             position: absolute;
-            right: 3rem;
-            z-index: 1001;
+            right: 20%;
         }
         .announcements span {
             display: none;

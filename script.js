@@ -53,14 +53,14 @@ document.addEventListener("click", (e) => {
 });
 
 // 4. Auto-close when the user scrolls
-window.addEventListener("scroll", () => {
-    closeMenu();
-}, { passive: true }); // Optimizes scroll performance
+// window.addEventListener("scroll", () => {
+//     closeMenu();
+// }, { passive: true }); // Optimizes scroll performance
 
 
-button.addEventListener('click', () => {
-    alert("Feature coming soon")
-})
+// button.addEventListener('click', () => {
+//     alert("Feature coming soon")
+// })
   
   // Sabbath Countdown Logic
         function updateSabbathCountdown() {
