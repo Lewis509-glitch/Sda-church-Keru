@@ -58,6 +58,7 @@ function checkOrientation() {
   if (isLandscape) {
     // Logic to hide elements or show a "Please Rotate" overlay
     document.body.style.display = 'none';
+    document.body.innerHTML = '<div class="rotate-overlay"><p>Please rotate your device to portrait mode for the best experience.</p></div>';
   } else {
     document.body.style.display = 'block';
   }
