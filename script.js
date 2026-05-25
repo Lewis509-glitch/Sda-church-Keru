@@ -3,15 +3,15 @@ const menu = document.querySelector(".menu");
 const nav = document.querySelector(".nav");
 const navLinks = document.querySelectorAll(".nav a");
 const footerDate = document.getElementById("current-year");
-const signBtn = document.querySelector(".join")
+const aside = document.querySelector("aside");
 
 // Set the current year in the footer
 footerDate.textContent = new Date().getFullYear();
 
 menu.addEventListener("click", () => {
-    signBtn.style.display = "block";
-    menu.classList.toggle("active");
-    nav.classList.toggle("active");
+    aside.style.display = "block";
+    aside.classList.add("slide-in");
+    aside.classList.remove("slide-out");
     // alert("Coming Soon!!!");
 });
 
