@@ -64,8 +64,8 @@
     }
 
     .announcements {
-        position: absolute;
-        right: 10rem;
+        /* position: absolute;
+        right: 10rem; */
         font-size: 1.5rem;
         color: var(--text-dark);
     }
@@ -75,6 +75,58 @@
         color: var(--text-dark);
         list-style: none;
     }
+
+    aside {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    aside .side-menu {
+        display: flex;
+        
+        justify-content: center;
+        list-style: none;
+        
+    }
+    
+    aside .side-menu li {
+        display: inline-flex;
+        margin-inline: 0.5rem;
+    }
+    
+    aside .side-menu a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: var(--text-dark);
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1rem;
+    }
+    aside .side-menu a:hover {
+        color: var(--secondary-color);
+        transition: color 0.3s ease;
+    }
+
+     .join {
+         display: none;
+         justify-content: center;
+         align-items: center;
+         right: 30%;
+     }
+
+     .join a {
+         color: white;
+         font-weight: 600;
+         text-decoration: none;
+     }
+
+     .join a:hover {
+         color: var(--secondary-color);
+         transition: color 0.3s ease;
+     }
 
     .menu {
         font-size: 50px;
@@ -486,12 +538,39 @@
             transition: transform 0.3s ease;
             /* Ensure it appears above the hero section */
         }
+        aside .side-menu {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+        }
+            aside .side-menu li {
+                justify-content: center;
+                align-items: center;
+                display: block;
+                margin: 1rem 0;
+            }
+        
+
+        aside .side-menu a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-light);
+            font-size: 1.2rem;
+        }
         .join {
             display: none;
             justify-content: center;
             align-items: center;
             position: absolute;
             right: 30%;
+        }
+        .announcements {
+            position: fixed;
+            top: 5.5rem;
         }
         .announcements span {
             display: none;
