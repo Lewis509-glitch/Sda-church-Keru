@@ -52,6 +52,13 @@ document.addEventListener("click", (e) => {
     }
 });
 
+screen.orientation.addEventListener("change", () => {
+  if (screen.orientation.type.includes('landscape')) {
+    alert("Please rotate your device back to portrait!");
+  }
+});
+
+
 // 4. Auto-close when the user scrolls
 // window.addEventListener("scroll", () => {
 //     closeMenu();
