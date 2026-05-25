@@ -4,16 +4,58 @@ const nav = document.querySelector(".nav");
 const navLinks = document.querySelectorAll(".nav a");
 const footerDate = document.getElementById("current-year");
 const aside = document.querySelector("aside");
-
+const joinBtn = document.querySelector(".join");
 // Set the current year in the footer
 footerDate.textContent = new Date().getFullYear();
 
-menu.addEventListener("click", () => {
+// 1. Define modular open and close functions
+const openMenu = () => {
     aside.style.display = "block";
-    aside.classList.add("slide-in");
+    aside.offsetHeight; // Force browser reflow to guarantee CSS animation plays
     aside.classList.remove("slide-out");
-    // alert("Coming Soon!!!");
+    aside.classList.add("slide-in");
+    joinBtn.style.display = "block"; // Show the Join Us button when menu opens
+};
+
+const closeMenu = () => {
+    // Guard clause: Only run close logic if the menu is actually open
+    if (!aside.classList.contains("slide-in")) return;
+
+    aside.classList.remove("slide-in");
+    aside.classList.add("slide-out");
+    
+    // Hide display after CSS transition completes (match your transition duration, e.g., 300ms)
+    setTimeout(() => {
+        if (aside.classList.contains("slide-out")) {
+            aside.style.display = "none";
+        }
+    }, 300); 
+};
+
+// 2. Toggle menu when clicking the menu button
+menu.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevents this click from immediately triggering the document listener
+    const isOpen = aside.classList.contains("slide-in");
+    
+    if (isOpen) {
+        closeMenu();
+    } else {
+        openMenu();
+    }
 });
+
+// 3. Auto-close when clicking outside the aside section
+document.addEventListener("click", (e) => {
+    // If the click happened OUTSIDE the aside AND OUTSIDE the menu button, close it
+    if (!aside.contains(e.target) && !menu.contains(e.target)) {
+        closeMenu();
+    }
+});
+
+// 4. Auto-close when the user scrolls
+window.addEventListener("scroll", () => {
+    closeMenu();
+}, { passive: true }); // Optimizes scroll performance
 
 
 button.addEventListener('click', () => {
