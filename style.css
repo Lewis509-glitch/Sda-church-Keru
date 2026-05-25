@@ -569,7 +569,8 @@
             right: 30%;
         }
         .announcements {
-            position: fixed;
+            position: sticky;
+            right: 5rem;
             top: 5.5rem;
         }
         .announcements span {
