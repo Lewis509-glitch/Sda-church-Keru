@@ -229,6 +229,84 @@
         font-size: 1.1rem;
     }
     
+    footer .links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: left;
+    }
+    footer .links ul {
+        list-style: none;
+        padding: 0;
+    }
+     footer .links a {
+        color: var(--text-light);
+        text-decoration: none;
+        list-style: none;
+        font-weight: 600;
+    }
+     footer .links a:hover {
+        color: var(--secondary-color);
+        transition: color 0.3s ease;
+        transform: scale(1.05);
+    }
+    footer .resources {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: left;
+        transition: color 0.3s ease;
+    }
+    footer .resources a:hover {
+        color: var(--secondary-color);
+        transition: color 0.3s ease;
+        transform: scale(1.05);
+    }
+    footer .resources ul {
+        list-style: none;
+        padding: 0;
+    }
+    footer .resources a {
+        color: var(--text-light);
+        text-decoration: none;
+        list-style: none;
+        font-weight: 600;
+    }
+
+    footer form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    footer input, footer textarea {
+        padding: 0.5rem;
+        border: none;
+        border-radius: 5px;
+    }
+    footer button {
+        background-color: var(--secondary-color);
+        color: var(--text-dark);
+        padding: 0.8rem 2rem;
+        border-radius: 5px;
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    footer button:hover {
+        background-color: #f59e0b;
+    }
+
+
+
+    footer .copy {
+        position: absolute;
+        bottom: 1rem;
+        font-size: 0.9rem;
+        color: var(--text-light);
+        margin-top: 1rem;
+    }
+
     .mobile-menu {
         visibility: hidden;
     }
