@@ -511,6 +511,7 @@
             position: absolute;
             margin-top: 1rem;
             bottom: 6rem;
+            align-self: center;
         }
         
     }
