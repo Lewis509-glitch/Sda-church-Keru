@@ -487,5 +487,30 @@
             padding-bottom: 15rem;
             flex-direction: column;
         }
+        .footer-contact {
+            align-items: center;
+        }
+         .footer-content {
+            max-width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        footer .links, footer .resources {
+            align-items: center;
+        }
+        footer .links ul, footer .resources ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        footer .links a, footer .resources a {
+            font-size: 1.2rem;
+        }
+        footer .copy {
+            position: static;
+            margin-top: 1rem;
+            bottom: 3rem;
+        }
         
     }
