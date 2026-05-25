@@ -2,6 +2,10 @@ const button = document.querySelector(".btn");
 const menu = document.querySelector(".menu");
 const nav = document.querySelector(".nav");
 const navLinks = document.querySelectorAll(".nav a");
+const footerDate = document.getElementById("current-year");
+
+// Set the current year in the footer
+footerDate.textContent = new Date().getFullYear();
 
 menu.addEventListener("click", () => {
     nav.classList.toggle("active");
