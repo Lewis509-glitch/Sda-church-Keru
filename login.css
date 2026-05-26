@@ -112,6 +112,7 @@ form .back {
     transition: background-color 0.3s ease;
 }
 form .back a {
+    background-color: var(--primary-color);
     color: var(--bg-light);
     text-decoration: none;
     font-weight: 600;
