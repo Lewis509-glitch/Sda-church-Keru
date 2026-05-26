@@ -584,8 +584,9 @@
             display: none;
         }
         footer {
-            padding-bottom: 15rem !important;
+            padding-bottom: 45rem;
             flex-direction: column;
+            bottom: 2rem;
         }
         .footer-contact {
             align-items: center;
@@ -608,10 +609,9 @@
             font-size: 1.2rem;
         } */
         footer .copy {
-
             position: absolute;
             margin-top: 1rem;
-            bottom: 6rem;
+            margin-bottom: 2rem;
             align-items: center;
         }
         
