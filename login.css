@@ -70,20 +70,52 @@ form button {
 form button:hover {
     background-color: var(--secondary-color);
 }
-form p {
+form .log-in {
     text-align: center;
     color: var(--text-light);
     margin-top: 1rem;
 }
-form p a {
+form .log-in a {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
     transition: text-decoration 0.3s ease;
 }
-form p a:hover {
+form .log-in a:hover {
     text-decoration: underline;
     transition: 0.5s ease;
+}
+form .terms {
+    text-align: center;
+    color: var(--text-light);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+form .terms a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: text-decoration 0.3s ease;
+}
+form .terms a:hover {
+    text-decoration: underline;
+    transition: 0.5s ease;
+}
+form .back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    background-color: var(--primary-color);
+    padding: 0.5rem;
+    border-radius: 4px;
+
+}
+form .back a {
+    color: var(--bg-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: text-decoration 0.3s ease;
 }
 form .error {
     color: red;
