@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+
+
+    <header>
+        <h1>Welcome</h1>
+    </header>
+
+    <section>
+        <form class="login">
+            <h2>Login</h2>
+            <div class="error">Invalid email or password.</div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Login</button>
+            <p class="form-text">Don't have an account? <a href="#">Sign up</a></p>
+        </form>
+
+        <form class="signup">
+            <h2>Sign Up</h2>
+            <div class="error">Please fill in all required fields.</div>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-email">Email:</label>
+                <input type="email" id="signup-email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-phone">Phone:</label>
+                <input type="tel" id="signup-phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Password:</label>
+                <input type="password" id="signup-password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Sign Up</button>
+            <p class="form-text">Already have an account? <a href="#">Login</a></p>
+        </form>
+    </section>
+
+    <script src="login.js"></script>
+
 </body>
 </html>
