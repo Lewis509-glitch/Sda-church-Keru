@@ -108,7 +108,6 @@ form .back {
     margin-top: 1rem;
     padding: 0.5rem;
     border-radius: 4px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 form .back a {
