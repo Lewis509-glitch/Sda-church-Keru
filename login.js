@@ -1,7 +1,7 @@
 const loginForm = document.querySelector('form');
 const signupForm = document.querySelectorAll('form')[1];
-const loginLink = document.querySelector('.form-text a');
-const signupLink = document.querySelectorAll('.form-text a')[1];
+const loginLink = document.querySelector('.log-in a');
+const signupLink = document.querySelectorAll('.log-in a')[1];
 
 loginLink.addEventListener('click', (e) => {
     e.preventDefault();
