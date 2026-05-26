@@ -584,7 +584,7 @@
             display: none;
         }
         footer {
-            padding-bottom: 15rem;
+            padding-bottom: 15rem !important;
             flex-direction: column;
         }
         .footer-contact {
