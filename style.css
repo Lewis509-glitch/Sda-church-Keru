@@ -555,7 +555,7 @@
             display: block;
             margin: 1rem 0;
         }
-        aside .side-menu li:hover {
+        aside .side-menu a:hover {
             color: var(--secondary-color);
             transition: color 0.3s ease;
         }
