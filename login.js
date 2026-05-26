@@ -15,6 +15,10 @@ signupLink.addEventListener('click', (e) => {
     loginForm.style.display = 'block';
 });
 
+const errorMessages = document.querySelectorAll('.error');
+errorMessages.forEach(error => error.style.display = 'none'); // Hide all error messages on page load
+
+
 
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
