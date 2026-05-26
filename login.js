@@ -32,6 +32,7 @@ loginForm.addEventListener('submit', (e) => {
     // Simple validation (replace with actual authentication logic)
     if (name === "" || password === "") {
         // Redirect or perform login action
+        errorMessages.textContent = 'Please fill in all required fields.';
         errorMessages[0].style.display = 'block';
     } else {
         window.location.href = 'dashboard.html';
