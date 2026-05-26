@@ -115,6 +115,7 @@ form .back a {
     background-color: var(--primary-color);
     color: var(--bg-light);
     text-decoration: none;
+    padding: 0.5rem 1rem;
     font-weight: 600;
     transition: text-decoration 0.3s ease;
 }
