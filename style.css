@@ -95,6 +95,10 @@
     aside .side-menu li {
         display: inline-flex;
         margin-inline: 0.5rem;
+        font-weight: 600;
+    }
+    aside .side-menu .hidden {
+        display: none;
     }
     
     aside .side-menu a {
@@ -107,7 +111,7 @@
         font-size: 0.89rem;
     }
     aside .side-menu a:hover {
-        color: var(--secondary-color);
+        color: var(--primary-color);
         transition: color 0.3s ease;
     }
 
@@ -545,13 +549,17 @@
             gap: 1.5rem;
             list-style: none;
         }
-            aside .side-menu li {
-                justify-content: center;
-                align-items: center;
-                display: block;
-                margin: 1rem 0;
-            }
+        aside .side-menu li {
+            justify-content: center;
+            align-items: center;
+            display: block;
+            margin: 1rem 0;
+        }
         
+        aside .side-menu .hidden {
+        display: block;
+        }
+
 
         aside .side-menu a {
             display: flex;
