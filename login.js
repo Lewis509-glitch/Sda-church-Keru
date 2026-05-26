@@ -15,22 +15,27 @@ signupLink.addEventListener('click', (e) => {
     loginForm.style.display = 'block';
 });
 
-const errorMessages = document.querySelectorAll('.error');
-errorMessages.forEach(error => error.style.display = 'none'); // Hide all error messages on page load
-
-
+const backLinks = document.querySelectorAll('.back a');
+backLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = 'index.html';
+    });
+});
 
 loginForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const name = loginForm.querySelector('#name').value;
     const password = loginForm.querySelector('#password').value;
-
+    const errorMessages = document.querySelectorAll('.error');
+    
     // Simple validation (replace with actual authentication logic)
-    if (name && password) {
+    if (name === "" || password === "") {
         // Redirect or perform login action
-        window.location.href = 'dashboard.html';
+        errorMessages[0].style.display = 'block';
     } else {
-        loginForm.querySelector('.error').style.display = 'block';
+        window.location.href = 'dashboard.html';
+        errorMessages[0].style.display = 'none';
     }
 });
 
@@ -40,12 +45,13 @@ signupForm.addEventListener('submit', (e) => {
     const email = signupForm.querySelector('#signup-email').value;
     const phone = signupForm.querySelector('#signup-phone').value;
     const password = signupForm.querySelector('#signup-password').value;
-
+    const errorMessages = document.querySelectorAll('.error');
+    
     // Simple validation (replace with actual registration logic)
-    if (name && email && phone && password) {
+    if (name === "" || email === "" || phone === "" || password === "") {
         // Redirect or perform signup action
-        window.location.href = 'dashboard.html';
+        errorMessages[1].style.display = 'block';
     } else {
-        signupForm.querySelector('.error').style.display = 'block';
+        window.location.href = 'dashboard.html';
     }
 });
