@@ -29,6 +29,18 @@ app.get('/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
+app.get('/', (req, res) => {
+  res.sendFile(path.join(publicPath, 'index.html'));
+});
+
+app.get('*', (req, res) => {
+  if (req.path.startsWith('/api') || path.extname(req.path)) {
+    return res.status(404).send('Not Found');
+  }
+
+  return res.sendFile(path.join(publicPath, 'index.html'));
+});
+
 const PORT = process.env.PORT || 3000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb+srv://gichigolewis51_db_user:<db_password>@cluster0.4kgpmqd.mongodb.net/sdaChurch';
 
