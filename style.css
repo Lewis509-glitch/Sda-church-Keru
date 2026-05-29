@@ -544,7 +544,7 @@
 
         aside {
             position: fixed;
-            top: 5rem;
+            top: 6rem;
             right: 0;
             height: 100vh;
             width: 80%;
@@ -553,10 +553,9 @@
             background-color: var(--primary-color);
             transform: translateX(100%);
             transition: transform 0.3s ease, opacity 0.3s ease;
-            opacity: 0;
             padding: 4rem 1.5rem 2rem;
-            overflow-y: auto;
-            z-index: 1001;
+            overflow-y: none;
+            z-index: -1001;
         }
 
         aside.slide-in {
