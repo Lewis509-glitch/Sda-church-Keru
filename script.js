@@ -10,11 +10,15 @@ footerDate.textContent = new Date().getFullYear();
 
 menu.addEventListener("click", () => {
     aside.style.display = "block";
-    aside.offsetHeight; // Force browser reflow to guarantee CSS animation plays
     aside.classList.remove("slide-out");
     aside.classList.add("slide-in");
-    joinBtn.style.display = "block"; // Show the Join Us button when menu opens
+    joinBtn.style.display = "block";
 });
+
+const closeMenu = () => {
+    aside.classList.remove("slide-in");
+    aside.classList.add("slide-out");
+};
 // 1. Define modular open and close functions
 // const openMenu = () => {
 //     aside.style.display = "block";
