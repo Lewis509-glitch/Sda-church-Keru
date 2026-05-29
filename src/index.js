@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 
-app.get('*', (req, res) => {
+app.use((req, res) => {
   if (req.path.startsWith('/api') || path.extname(req.path)) {
     return res.status(404).send('Not Found');
   }
