@@ -538,7 +538,7 @@
         aside {
             position: fixed;
             right: 0;
-            top: 0;
+            top: 1rem;
             height: 100vh;
             width: 80%;
             max-width: 320px;
