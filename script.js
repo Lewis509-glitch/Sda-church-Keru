@@ -9,17 +9,12 @@ const joinBtn = document.querySelector(".join");
 footerDate.textContent = new Date().getFullYear();
 
 menu.addEventListener("click", () => {
-    nav.classList.toggle("nav-open");
-    menu.classList.toggle("open");
+    aside.style.display = "block";
+    aside.offsetHeight; // Force browser reflow to guarantee CSS animation plays
+    aside.classList.remove("slide-out");
+    aside.classList.add("slide-in");
+    joinBtn.style.display = "block"; // Show the Join Us button when menu opens
 });
-
-navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-        nav.classList.remove("nav-open");
-        menu.classList.remove("open");
-    });
-});
-
 // 1. Define modular open and close functions
 // const openMenu = () => {
 //     aside.style.display = "block";
