@@ -9,13 +9,13 @@ const joinBtn = document.querySelector(".join");
 footerDate.textContent = new Date().getFullYear();
 
 // 1. Define modular open and close functions
-const openMenu = () => {
-    aside.style.display = "block";
-    aside.offsetHeight; // Force browser reflow to guarantee CSS animation plays
-    aside.classList.remove("slide-out");
-    aside.classList.add("slide-in");
-    joinBtn.style.display = "block"; // Show the Join Us button when menu opens
-};
+// const openMenu = () => {
+//     aside.style.display = "block";
+//     aside.offsetHeight; // Force browser reflow to guarantee CSS animation plays
+//     aside.classList.remove("slide-out");
+//     aside.classList.add("slide-in");
+//     joinBtn.style.display = "block"; // Show the Join Us button when menu opens
+// };
 
 const closeMenu = () => {
     // Guard clause: Only run close logic if the menu is actually open
