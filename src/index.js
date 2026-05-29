@@ -9,18 +9,21 @@ dotenv.config();
 const authRoutes = require('./routes/auth');
 const announcementRoutes = require('./routes/announcements');
 const profileRoutes = require('./routes/profile');
+const userRoutes = require('./routes/users');
 const User = require('./models/User');
 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const publicPath = path.join(__dirname, '../Frontend');
+const publicPath = path.join(__dirname, '..');
+console.log('Serving frontend from:', publicPath);
 app.use(express.static(publicPath));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/announcements', announcementRoutes);
 app.use('/api/profile', profileRoutes);
+app.use('/api/users', userRoutes);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });

@@ -41,7 +41,7 @@
             <li><a href="about.html"><i class='bx bxs-user'></i><span>About</span></a></li>
             <li><a href="ministries.html"><i class='bx bxs-group'></i><span>Ministries</span></a></li>
             <li><a href="sermons.html"><i class='bx bxs-tv'></i><span>Sermons</span></a></li>
-            <li><a href="#"><i class='bx bxs-donate-heart'></i><span>Giving</span></a></li>
+            <li><a href="dashboard.html"><i class='bx bxs-user-circle'></i><span>Profile</span></a></li>
         </ul>
 
         <div class="announcements">
@@ -71,7 +71,7 @@
             
             <!-- View Mode -->
             <div id="profile-view" class="profile-view">
-                <img src="dev.jpeg" alt="Profile Picture" class="profile-pic">
+               
                 <div class="profile-info">
                     <p><strong>Name:</strong> <span id="view-name">Lewis Gichigo</span></p>
                     <p><strong>Email:</strong> <span id="view-email">lewis.gichigo@example.com</span></p>
@@ -152,83 +152,6 @@
 
     <!-- Scripts -->
     <script src="script.js"></script>
-    <script>
-        // Load profile from localStorage on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            loadProfile();
-        });
-
-        // Load and display profile data
-        function loadProfile() {
-            const profile = JSON.parse(localStorage.getItem('userProfile')) || {
-                name: 'Lewis Gichigo',
-                email: 'lewis.gichigo@example.com',
-                phone: '+254 712 345 678'
-            };
-
-            // Display in view mode
-            document.getElementById('view-name').textContent = profile.name;
-            document.getElementById('view-email').textContent = profile.email;
-            document.getElementById('view-phone').textContent = profile.phone;
-
-            // Populate edit form
-            document.getElementById('edit-name').value = profile.name;
-            document.getElementById('edit-email').value = profile.email;
-            document.getElementById('edit-phone').value = profile.phone;
-        }
-
-        // Toggle between view and edit mode
-        function toggleEditMode() {
-            const viewMode = document.getElementById('profile-view');
-            const editMode = document.getElementById('profile-edit');
-
-            viewMode.style.display = 'none';
-            editMode.style.display = 'block';
-        }
-
-        // Save profile data
-        function saveProfile() {
-            const name = document.getElementById('edit-name').value.trim();
-            const email = document.getElementById('edit-email').value.trim();
-            const phone = document.getElementById('edit-phone').value.trim();
-
-            // Validate inputs
-            if (!name) {
-                alert('Name is required');
-                return;
-            }
-            if (!email) {
-                alert('Email is required');
-                return;
-            }
-
-            // Save to localStorage
-            const profile = { name, email, phone };
-            localStorage.setItem('userProfile', JSON.stringify(profile));
-
-            // Update view mode
-            document.getElementById('view-name').textContent = name;
-            document.getElementById('view-email').textContent = email;
-            document.getElementById('view-phone').textContent = phone;
-
-            // Switch back to view mode
-            cancelEdit();
-
-            // Show success message
-            alert('Profile updated successfully!');
-        }
-
-        // Cancel edit mode
-        function cancelEdit() {
-            const viewMode = document.getElementById('profile-view');
-            const editMode = document.getElementById('profile-edit');
-
-            viewMode.style.display = 'block';
-            editMode.style.display = 'none';
-
-            // Reload form with current data
-            loadProfile();
-        }
-    </script>
+    <script src="dashboard.js"></script>
 </body>
 </html>

@@ -5,15 +5,29 @@ const navLinks = document.querySelectorAll(".nav a");
 const footerDate = document.getElementById("current-year");
 const aside = document.querySelector("aside");
 const joinBtn = document.querySelector(".join");
-
-// Create overlay for mobile menu
-const overlay = document.createElement("div");
-overlay.className = "menu-overlay";
-document.body.appendChild(overlay);
+const overlay = document.querySelector(".overlay");
+const authToken = localStorage.getItem('authToken');
 
 // Set the current year in the footer
 if (footerDate) {
     footerDate.textContent = new Date().getFullYear();
+}
+
+if (joinBtn) {
+    if (authToken) {
+        joinBtn.textContent = 'Logout';
+        joinBtn.href = '#';
+        joinBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('userRole');
+            localStorage.removeItem('userName');
+            window.location.href = '/login.html';
+        });
+    } else {
+        joinBtn.textContent = 'Join Us';
+        joinBtn.href = '/login.html';
+    }
 }
 
 const openMenu = () => {
@@ -21,16 +35,12 @@ const openMenu = () => {
     aside.style.display = "block";
     aside.classList.remove("slide-out");
     aside.classList.add("slide-in");
-    overlay.classList.add("active");
-    document.body.style.overflow = "hidden";
 };
 
 const closeMenu = () => {
     if (!aside) return;
     aside.classList.remove("slide-in");
     aside.classList.add("slide-out");
-    overlay.classList.remove("active");
-    document.body.style.overflow = "";
     setTimeout(() => {
         if (aside.classList.contains("slide-out")) {
             aside.style.display = "none";
@@ -50,7 +60,9 @@ if (menu) {
     });
 }
 
-overlay.addEventListener("click", closeMenu);
+if (overlay) {
+    overlay.addEventListener("click", closeMenu);
+}
 
 // 3. Auto-close when clicking outside the aside section
 document.addEventListener("click", (e) => {

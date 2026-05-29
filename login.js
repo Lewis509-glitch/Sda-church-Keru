@@ -63,6 +63,7 @@ loginForm.addEventListener('submit', async (e) => {
     localStorage.setItem('userRole', data.role);
     localStorage.setItem('userName', data.user.name);
 
+    loginForm.reset();
     clearError(loginError);
     window.location.href = data.role === 'admin' ? 'admin.html' : 'dashboard.html';
   } catch (error) {
@@ -96,12 +97,9 @@ signupForm.addEventListener('submit', async (e) => {
       return;
     }
 
-    localStorage.setItem('authToken', data.token);
-    localStorage.setItem('userRole', data.role);
-    localStorage.setItem('userName', data.user.name);
-
     clearError(signupError);
-    window.location.href = data.role === 'admin' ? 'admin.html' : 'dashboard.html';
+    alert('Account created successfully. Please log in.');
+    window.location.href = '/login.html';
   } catch (error) {
     showError(signupError, 'Unable to sign up. Please try again later.');
   }
