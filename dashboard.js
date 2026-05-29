@@ -1,6 +1,8 @@
 const profileViewName = document.getElementById('view-name');
 const profileViewEmail = document.getElementById('view-email');
 const profileViewPhone = document.getElementById('view-phone');
+const profileViewStatus = document.getElementById('view-status');
+const profileViewRole = document.getElementById('view-role');
 const editName = document.getElementById('edit-name');
 const editEmail = document.getElementById('edit-email');
 const editPhone = document.getElementById('edit-phone');
@@ -72,6 +74,8 @@ const loadProfile = async () => {
     profileViewName.textContent = user.name;
     profileViewEmail.textContent = user.email;
     profileViewPhone.textContent = user.phone || 'Not provided';
+    profileViewStatus.textContent = user.status || 'visitor';
+    profileViewRole.textContent = user.role || 'visitor';
     editName.value = user.name;
     editEmail.value = user.email;
     editPhone.value = user.phone || '';
