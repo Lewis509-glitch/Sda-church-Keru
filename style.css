@@ -461,97 +461,101 @@
 
     @media (max-width: 888px) {
 
+        body {
+            padding-bottom: 5rem;
+        }
+
+        nav {
+            padding: 1rem 1rem 0.5rem;
+        }
+
         .menu {
             display: block;
-            right: 2rem;
-            top: 1rem;
+            right: 1rem;
+            top: 1.25rem;
             position: absolute;
             visibility: visible;
             font-size: 2rem;
-            font-weight: 600;
+            cursor: pointer;
             z-index: 1001;
         }
 
         .announcements {
             position: absolute;
-            right: 6rem;
+            right: 5rem;
+            top: 1.5rem;
         }
-        /* ... your other mobile styles ... */
 
         .nav-links {
             position: fixed;
             bottom: 0;
-            left: 0; /* Explicitly anchor to the left edge */
-            width: 100vw; /* Safer than 100vw to avoid horizontal scrollbars */
-            display: flex; /* Flex is better than inline-flex for full-width containers */
-            justify-content: space-evenly; /* Centers the links horizontally */
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
             align-items: center;
-             /* Essential for mobile touch targets */
-            gap: 0.5rem; /* Spreads out the links */
+            gap: 0.5rem;
             background-color: var(--bg-light);
-            z-index: 1000; /* Ensures it stays on top of the hero section */
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.05); /* Optional: adds a nice top shadow to separate it from content */
-            font-size: 1.5rem; /* Increased from 10px for better mobile readability */
+            z-index: 1000;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+            font-size: 1.2rem;
             text-align: center;
             height: 4rem;
             border-top: 4px solid var(--primary-color);
-            border-top-right-radius: 10px;
-            border-top-left-radius: 10px;
-            padding-block: 30px;
+            padding: 0 0.5rem;
         }
-        
-        
+
         .nav-links span {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
             align-items: center;
             text-align: center;
         }
 
         .hero {
-            padding: 15rem 1rem;
-
+            padding: 6rem 1rem 4rem;
         }
-        
+
         .hero h1 {
             font-size: 2.5rem;
         }
+
         .top-bar {
-            flex-direction: column; 
-            text-align: center; 
-            gap: 0.5rem; 
+            flex-direction: column;
+            text-align: center;
+            gap: 0.5rem;
         }
 
         .logo {
             left: 2px;
         }
-        .logo span { 
-            /* display: none;  */
-            
-            font-size: 1rem;
-            /* position: absolute; */
-        } /* On very small screens, hide text and just show logo */
 
-        aside  {
-            position: absolute;
+        .logo span {
+            font-size: 1rem;
+        }
+
+        aside {
+            position: fixed;
             right: 0;
-            top: 4.8rem;
+            top: 0;
             height: 100vh;
-            width: 50%;
+            width: 80%;
+            max-width: 320px;
             display: none;
             background-color: var(--primary-color);
             transform: translateX(100%);
             transition: transform 0.3s ease, opacity 0.3s ease;
             opacity: 0;
             z-index: 1000;
-            /* Ensure it appears above the hero section */
+            padding: 4rem 1.5rem 2rem;
+            overflow-y: auto;
         }
 
         aside.slide-in {
             transform: translateX(0);
             opacity: 1;
+            display: block;
         }
 
         aside.slide-out {
@@ -560,121 +564,63 @@
         }
 
         aside .side-menu {
-            display: block;
-            justify-content: center;
-            align-items: center;
+            display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 1rem;
             list-style: none;
-        }
-        aside .side-menu li {
-            justify-content: center;
-            align-items: center;
-            display: block;
-            margin: 1rem 0;
-        }
-        aside .side-menu a:hover {
-            color: var(--secondary-color);
-            transition: color 0.3s ease;
-        }
-        
-        aside .side-menu .hidden {
-        display: block;
+            padding: 0;
+            margin: 0;
         }
 
+        aside .side-menu li {
+            margin: 0.75rem 0;
+        }
 
         aside .side-menu a {
             display: flex;
             align-items: center;
-            justify-content: center;
             color: var(--bg-light);
-            font-size: 1.2rem;
-        }
-        .join {
-            display: none;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            right: 30%;
-        }
-        .announcements {
-            position: sticky;
-            right: 5rem;
-            top: 5.5rem;
-        }
-        .announcements span {
-            display: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            gap: 0.75rem;
+            text-decoration: none;
         }
 
-        aside {
-            position: absolute;
-            right: 0;
-            top: 4.8rem;
-            height: 100vh;
-            width: 50%;
-            display: none;
-            background-color: var(--primary-color);
-            transform: translateX(100%);
-            transition: transform 0.3s ease, opacity 0.3s ease;
-            opacity: 0;
-            z-index: 1000;
+        aside .side-menu a:hover {
+            color: var(--secondary-color);
         }
 
-        aside.slide-in {
-            transform: translateX(0);
-            opacity: 1;
+        aside .side-menu .hidden {
+            display: block;
         }
 
-        aside.slide-out {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-
-        .join {
-            display: none;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            right: 30%;
-        }
-        .announcements {
-            position: sticky;
-            right: 5rem;
-            top: 5.5rem;
-        }
-        .announcements span {
-            display: none;
-        }
-        footer {
-            padding-bottom: 45rem;
-            flex-direction: column;
-            bottom: 2rem;
-        }
-        .footer-contact {
-            align-items: center;
-        }
-         .footer-content {
-            max-width: 100%;
-            margin: 0 auto;
+        .join-btn {
+            margin-top: 2rem;
             text-align: center;
         }
-        /* footer .links, footer .resources {
+
+        .join {
+            display: inline-flex;
+            justify-content: center;
             align-items: center;
+            background-color: var(--secondary-color);
+            color: var(--text-dark);
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
         }
-        footer .links ul, footer .resources ul {
-            display: flex;
+
+        footer {
+            padding-bottom: 6rem;
             flex-direction: column;
-            gap: 0.5rem;
-            align-items: center;
         }
-        footer .links a, footer .resources a {
-            font-size: 1.2rem;
-        } */
+
+        .footer-contact,
+        .footer-content,
         footer .copy {
-            position: absolute;
-            margin-top: 1rem;
-            margin-bottom: 2rem;
-            align-items: center;
+            width: 100%;
+            text-align: center;
         }
-        
     }
