@@ -5,64 +5,60 @@ const navLinks = document.querySelectorAll(".nav a");
 const footerDate = document.getElementById("current-year");
 const aside = document.querySelector("aside");
 const joinBtn = document.querySelector(".join");
-// Set the current year in the footer
-footerDate.textContent = new Date().getFullYear();
 
-menu.addEventListener("click", () => {
+// Create overlay for mobile menu
+const overlay = document.createElement("div");
+overlay.className = "menu-overlay";
+document.body.appendChild(overlay);
+
+// Set the current year in the footer
+if (footerDate) {
+    footerDate.textContent = new Date().getFullYear();
+}
+
+const openMenu = () => {
+    if (!aside) return;
     aside.style.display = "block";
     aside.classList.remove("slide-out");
     aside.classList.add("slide-in");
-    joinBtn.style.display = "block";
-});
+    overlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+};
 
 const closeMenu = () => {
+    if (!aside) return;
     aside.classList.remove("slide-in");
     aside.classList.add("slide-out");
+    overlay.classList.remove("active");
+    document.body.style.overflow = "";
+    setTimeout(() => {
+        if (aside.classList.contains("slide-out")) {
+            aside.style.display = "none";
+        }
+    }, 300);
 };
-// 1. Define modular open and close functions
-// const openMenu = () => {
-//     aside.style.display = "block";
-//     aside.offsetHeight; // Force browser reflow to guarantee CSS animation plays
-//     aside.classList.remove("slide-out");
-//     aside.classList.add("slide-in");
-//     joinBtn.style.display = "block"; // Show the Join Us button when menu opens
-// };
 
-// const closeMenu = () => {
-//     // Guard clause: Only run close logic if the menu is actually open
-//     if (!aside.classList.contains("slide-in")) return;
+if (menu) {
+    menu.addEventListener("click", (e) => {
+        e.stopPropagation(); // Prevent click from immediately triggering the document listener
+        const isOpen = aside && aside.classList.contains("slide-in");
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+}
 
-//     aside.classList.remove("slide-in");
-//     aside.classList.add("slide-out");
-    
-//     // Hide display after CSS transition completes (match your transition duration, e.g., 300ms)
-//     setTimeout(() => {
-//         if (aside.classList.contains("slide-out")) {
-//             aside.style.display = "none";
-//         }
-//     }, 300); 
-// };
-
-// // 2. Toggle menu when clicking the menu button
-// menu.addEventListener("click", (e) => {
-//     e.stopPropagation(); // Prevents this click from immediately triggering the document listener
-//     const isOpen = aside.classList.contains("slide-in");
-    
-//     if (isOpen) {
-//         closeMenu();
-//     } else {
-//         openMenu();
-//     }
-// });
+overlay.addEventListener("click", closeMenu);
 
 // 3. Auto-close when clicking outside the aside section
 document.addEventListener("click", (e) => {
-    // If the click happened OUTSIDE the aside AND OUTSIDE the menu button, close it
+    if (!aside || !menu) return;
     if (!aside.contains(e.target) && !menu.contains(e.target)) {
         closeMenu();
     }
 });
-
 
 
 // 4. Auto-close when the user scrolls
