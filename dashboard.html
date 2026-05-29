@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+
+    <title>Kerugoya Main SDA Church</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="16x16" href="sda-logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+    <!-- Top Info Bar -->
+    <header class="top-bar">
+        <div>Verse of the Week: <span class="highlight">Exodus 20:8</span></div>
+        <div>
+            Sunset Today: <span class="highlight" id="sunset-time">18:45 EAT</span> | 
+            Sabbath In: <span class="highlight" id="sabbath-countdown">Loading...</span>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <!-- Official SDA Logo SVG from Wikimedia Commons -->
+            <img src="sda-logo.png" alt="Seventh-day Adventist Logo">
+            <span>Kerugoya Main SDA</span>
+        </a>
+
+        
+        <div class="menu" id="menu">
+            <i class='bx bx-menu-alt-right'></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html"><i class='bx bxs-home'></i><span>Home</span></a></li>
+            <li><a href="about.html"><i class='bx bxs-user'></i><span>About</span></a></li>
+            <li><a href="ministries.html"><i class='bx bxs-group'></i><span>Ministries</span></a></li>
+            <li><a href="sermons.html"><i class='bx bxs-tv'></i><span>Sermons</span></a></li>
+            <li><a href="#"><i class='bx bxs-donate-heart'></i><span>Giving</span></a></li>
+        </ul>
+
+        <div class="announcements">
+            <a href="announcements.html"><i class='bx bxs-bell'></i></i></a>
+        </div>
+        
+        <aside>
+            <div class="side-menu">
+                <ul>
+                    <li class="hidden"><a href="index.html"><i class='bx bxs-user-voice'></i> <span>Leaders</span></a></li>
+                    <li class="hidden"><a href="index.html"><i class='bx bxs-calendar'></i> <span></span>Program</span></a></li>
+                    <li class="hidden"><a href="about.html"><i class='bx bxs-bible'></i> <span>Prayer</span></a></li>
+                    <li><a href="index.html"><i class='bx bxs-photo-album'></i> <span>Gallery</span></a></li>
+                    <li><a href="contact.html"><i class='bx bxs-phone'></i> <span>Contact Us</span></a></li>
+                </ul>
+            </div>
+            <div class="join-btn">
+                <a href="login.html" class="btn join" style="padding: 0.5rem 1.5rem;">Join Us</a>
+            </div>
+        </aside>
+    </nav>
+
+    <section class="dashboard">
+        <h1>Welcome to Your Dashboard</h1>
+        <div class="profile">
+            <h2>User Profile</h2>
+            
+            <!-- View Mode -->
+            <div id="profile-view" class="profile-view">
+                <img src="dev.jpeg" alt="Profile Picture" class="profile-pic">
+                <div class="profile-info">
+                    <p><strong>Name:</strong> <span id="view-name">Lewis Gichigo</span></p>
+                    <p><strong>Email:</strong> <span id="view-email">lewis.gichigo@example.com</span></p>
+                    <p><strong>Phone:</strong> <span id="view-phone">+254 712 345 678</span></p>
+                </div>
+                <div class="edit">
+                    <button class="btn" onclick="toggleEditMode()">Edit Profile</button>
+                </div>
+            </div>
+
+            <!-- Edit Mode -->
+            <div id="profile-edit" class="profile-edit" style="display: none;">
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label for="edit-name">Name:</label>
+                        <input type="text" id="edit-name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-email">Email:</label>
+                        <input type="email" id="edit-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-phone">Phone:</label>
+                        <input type="tel" id="edit-phone" placeholder="Enter your phone number">
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-save" onclick="saveProfile()">Save Changes</button>
+                        <button type="button" class="btn btn-cancel" onclick="cancelEdit()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-contact">
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p><i class='bx bxs-phone'></i> +254 712 345 678</p>
+                <p><i class='bx bxs-envelope'></i> info@kerugoyasda.org</p>
+            </div>
+        </div>
+        <div class="links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="ministries.html">Ministries</a></li>
+                <li><a href="sermons.html">Sermons</a></li>
+                <li><a href="#">Giving</a></li>
+            </ul>
+        </div>
+        <div class="resources">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="https://ssnet.org/lessons/current.html">Sabbath School Lessons</a></li>
+                <li><a href="http://www.anym.org/download_audio_sermons.html?no_redirect=true">Sermon Archives</a></li>
+                <li><a href="https://adventist.org/beliefs/bible/study">Bible Study Guides</a></li>
+                <li><a href="event-calendar.html">Event Calendar</a></li>
+                <li><a href="https://m.egwwritings.org/">Ellen G. White Writings</a></li>
+            </ul>
+        </div>
+
+       <form class="newsletter">
+            <h3>Subscribe to Our Newsletter</h3>
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+
+        
+        <div class="copy">
+            <p>&copy; <span id="current-year">2023</span> SDA Church Kerugoya. All rights reserved.</p>
+            <p>Developed by <a href="https://wa.me/254115903200" target="_blank">L-Tech Solutions</a></p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // Load profile from localStorage on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProfile();
+        });
+
+        // Load and display profile data
+        function loadProfile() {
+            const profile = JSON.parse(localStorage.getItem('userProfile')) || {
+                name: 'Lewis Gichigo',
+                email: 'lewis.gichigo@example.com',
+                phone: '+254 712 345 678'
+            };
+
+            // Display in view mode
+            document.getElementById('view-name').textContent = profile.name;
+            document.getElementById('view-email').textContent = profile.email;
+            document.getElementById('view-phone').textContent = profile.phone;
+
+            // Populate edit form
+            document.getElementById('edit-name').value = profile.name;
+            document.getElementById('edit-email').value = profile.email;
+            document.getElementById('edit-phone').value = profile.phone;
+        }
+
+        // Toggle between view and edit mode
+        function toggleEditMode() {
+            const viewMode = document.getElementById('profile-view');
+            const editMode = document.getElementById('profile-edit');
+
+            viewMode.style.display = 'none';
+            editMode.style.display = 'block';
+        }
+
+        // Save profile data
+        function saveProfile() {
+            const name = document.getElementById('edit-name').value.trim();
+            const email = document.getElementById('edit-email').value.trim();
+            const phone = document.getElementById('edit-phone').value.trim();
+
+            // Validate inputs
+            if (!name) {
+                alert('Name is required');
+                return;
+            }
+            if (!email) {
+                alert('Email is required');
+                return;
+            }
+
+            // Save to localStorage
+            const profile = { name, email, phone };
+            localStorage.setItem('userProfile', JSON.stringify(profile));
+
+            // Update view mode
+            document.getElementById('view-name').textContent = name;
+            document.getElementById('view-email').textContent = email;
+            document.getElementById('view-phone').textContent = phone;
+
+            // Switch back to view mode
+            cancelEdit();
+
+            // Show success message
+            alert('Profile updated successfully!');
+        }
+
+        // Cancel edit mode
+        function cancelEdit() {
+            const viewMode = document.getElementById('profile-view');
+            const editMode = document.getElementById('profile-edit');
+
+            viewMode.style.display = 'block';
+            editMode.style.display = 'none';
+
+            // Reload form with current data
+            loadProfile();
+        }
+    </script>
+</body>
+</html>
