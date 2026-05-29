@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const authRoutes = require('./routes/auth');
 const announcementRoutes = require('./routes/announcements');
 const profileRoutes = require('./routes/profile');
@@ -7,6 +8,9 @@ const userRoutes = require('./routes/users');
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+const publicPath = path.join(__dirname, '..');
+app.use(express.static(publicPath));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/announcements', announcementRoutes);

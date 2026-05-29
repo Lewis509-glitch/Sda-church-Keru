@@ -30,6 +30,32 @@ if (joinBtn) {
     }
 }
 
+const notificationLink = document.querySelector('.announcements a');
+let notificationBadge;
+if (notificationLink) {
+    notificationBadge = document.createElement('span');
+    notificationBadge.className = 'notification-badge';
+    notificationLink.appendChild(notificationBadge);
+
+    const updateNotificationIndicator = async () => {
+        try {
+            const response = await fetch('/api/announcements');
+            const data = await response.json();
+            const count = Array.isArray(data.announcements) ? data.announcements.length : 0;
+            if (count > 0) {
+                notificationBadge.style.display = 'flex';
+                notificationBadge.textContent = count > 9 ? '9+' : count;
+            } else {
+                notificationBadge.style.display = 'none';
+            }
+        } catch (error) {
+            notificationBadge.style.display = 'none';
+        }
+    };
+
+    updateNotificationIndicator();
+}
+
 const openMenu = () => {
     if (!aside) return;
     aside.style.display = "block";
