@@ -9,10 +9,9 @@ const userCancel = document.getElementById('user-cancel');
 
 const token = localStorage.getItem('authToken');
 const userRole = localStorage.getItem('userRole');
-if (!token) {
-  window.location.href = '/login.html';
-} else if (userRole !== 'admin') {
-  window.location.href = '/dashboard.html';
+const isAdmin = token && userRole === 'admin';
+if (!isAdmin) {
+  window.location.href = '/admin-login.html';
 }
 
 const headers = {
@@ -229,11 +228,11 @@ logoutBtn.addEventListener('click', () => {
   localStorage.removeItem('authToken');
   localStorage.removeItem('userRole');
   localStorage.removeItem('userName');
-  window.location.href = '/login.html';
+  window.location.href = '/announcements.html';
 });
 
 backBtn.addEventListener('click', () => {
-  window.location.href = '/dashboard.html';
+  window.location.href = '/announcements.html';
 });
 
 fetchAnnouncements();

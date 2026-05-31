@@ -1,8 +1,7 @@
 const express = require('express');
 const path = require('path');
-const authRoutes = require('./routes/auth');
 const announcementRoutes = require('./routes/announcements');
-const profileRoutes = require('./routes/profile');
+const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/users');
 
 const app = express();
@@ -25,9 +24,8 @@ const publicPath = path.join(__dirname, '..');
 app.use(express.static(publicPath));
 
 app.use('/api/auth', authRoutes);
-app.use('/api/announcements', announcementRoutes);
-app.use('/api/profile', profileRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/announcements', announcementRoutes);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok' });

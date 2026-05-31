@@ -1,12 +1,15 @@
 const button = document.querySelector(".btn");
 const menu = document.querySelector(".menu");
-const nav = document.querySelector(".nav");
-const navLinks = document.querySelectorAll(".nav a");
-const footerDate = document.getElementById("current-year");
+const nav = document.querySelector("nav");
+const navLinks = document.querySelector(".nav-links");
 const aside = document.querySelector("aside");
+const asideMenu = document.querySelector(".side-menu ul");
+const footerDate = document.getElementById("current-year");
 const joinBtn = document.querySelector(".join");
 const overlay = document.querySelector(".overlay");
 const authToken = localStorage.getItem('authToken');
+const userRole = localStorage.getItem('userRole');
+const isAdmin = authToken && userRole === 'admin';
 
 // Set the current year in the footer
 if (footerDate) {
@@ -14,21 +17,41 @@ if (footerDate) {
 }
 
 if (joinBtn) {
-    if (authToken) {
-        joinBtn.textContent = 'Logout';
-        joinBtn.href = '#';
-        joinBtn.addEventListener('click', (event) => {
-            event.preventDefault();
-            localStorage.removeItem('authToken');
-            localStorage.removeItem('userRole');
-            localStorage.removeItem('userName');
-            window.location.href = '/login.html';
-        });
-    } else {
-        joinBtn.textContent = 'Join Us';
-        joinBtn.href = '/login.html';
-    }
+    joinBtn.style.display = 'none';
 }
+
+const renderAdminNav = () => {
+    if (!navLinks) return;
+
+    const existingItem = document.getElementById('admin-nav-item');
+    const href = isAdmin ? 'admin.html' : 'admin-login.html';
+    const text = isAdmin ? 'Admin Console' : 'Admin Login';
+
+    const itemHtml = `<a href="${href}"><i class='bx bx-shield-quarter'></i><span>${text}</span></a>`;
+
+    if (existingItem) {
+        existingItem.innerHTML = itemHtml;
+    } else {
+        const listItem = document.createElement('li');
+        listItem.id = 'admin-nav-item';
+        listItem.innerHTML = itemHtml;
+        navLinks.appendChild(listItem);
+    }
+
+    if (asideMenu) {
+        const existingAsideItem = document.getElementById('admin-aside-item');
+        if (existingAsideItem) {
+            existingAsideItem.innerHTML = itemHtml;
+        } else {
+            const asideItem = document.createElement('li');
+            asideItem.id = 'admin-aside-item';
+            asideItem.innerHTML = itemHtml;
+            asideMenu.appendChild(asideItem);
+        }
+    }
+};
+
+renderAdminNav();
 
 const notificationLink = document.querySelector('.announcements a');
 let notificationBadge;
@@ -54,6 +77,10 @@ if (notificationLink) {
     };
 
     updateNotificationIndicator();
+}
+
+if (joinBtn) {
+    joinBtn.style.display = 'none';
 }
 
 const openMenu = () => {
