@@ -60,7 +60,7 @@ router.delete('/:id', authenticate, requireAdmin, async (req, res) => {
       return res.status(404).json({ message: 'Announcement not found.' });
     }
 
-    await announcement.remove();
+    await announcement.deleteOne();
     return res.json({ message: 'Announcement removed.' });
   } catch (error) {
     console.error(error);

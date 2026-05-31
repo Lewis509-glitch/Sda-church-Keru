@@ -46,40 +46,77 @@ const saveProfile = async () => {
       headers: apiHeaders,
       body: JSON.stringify({ name, email, phone }),
     });
+
     const data = await response.json();
+
     if (!response.ok) {
-      alert(data.message || 'Unable to update profile.');
+      console.error('Profile update error:', data);
+      alert(data.message || 'Unable to update profile. Please try again.');
       return;
     }
 
+    // Update localStorage with new data
+    if (data.user) {
+      localStorage.setItem('userName', data.user.name);
+      localStorage.setItem('userEmail', data.user.email);
+      localStorage.setItem('userPhone', data.user.phone || '');
+    }
+
+    // Switch back to view mode
     document.getElementById('profile-view').style.display = 'block';
     document.getElementById('profile-edit').style.display = 'none';
-    loadProfile();
+
+    // Reload profile to show updated data
+    await loadProfile();
     alert('Profile updated successfully!');
   } catch (error) {
-    alert('Unable to update profile.');
+    console.error('Profile save error:', error);
+    alert('Unable to update profile. Please check your connection and try again.');
   }
 };
 
 const loadProfile = async () => {
   try {
     const response = await fetch('/api/profile', { headers: apiHeaders });
+    
     if (!response.ok) {
-      localStorage.removeItem('authToken');
-      window.location.href = '/login.html';
+      console.error('Profile load error:', response.status, response.statusText);
+      
+      if (response.status === 401) {
+        // Token is invalid or expired
+        localStorage.removeItem('authToken');
+        localStorage.removeItem('userName');
+        localStorage.removeItem('userEmail');
+        localStorage.removeItem('userPhone');
+        localStorage.removeItem('userRole');
+        localStorage.removeItem('userStatus');
+        alert('Your session has expired. Please log in again.');
+        window.location.href = '/login.html';
+      }
       return;
     }
 
-    const { user } = await response.json();
-    profileViewName.textContent = user.name;
-    profileViewEmail.textContent = user.email;
+    const responseData = await response.json();
+    const user = responseData.user;
+
+    if (!user) {
+      console.error('No user data in response');
+      return;
+    }
+
+    // Update display with user data
+    profileViewName.textContent = user.name || '';
+    profileViewEmail.textContent = user.email || '';
     profileViewPhone.textContent = user.phone || 'Not provided';
     profileViewStatus.textContent = user.status || 'visitor';
     profileViewRole.textContent = user.role || 'visitor';
-    editName.value = user.name;
-    editEmail.value = user.email;
+
+    // Update form fields for editing
+    editName.value = user.name || '';
+    editEmail.value = user.email || '';
     editPhone.value = user.phone || '';
 
+    // Add admin panel link if user is admin
     if (user.role === 'admin' && !document.getElementById('admin-link')) {
       adminPanelButton.id = 'admin-link';
       adminPanelButton.textContent = 'Admin Panel';
@@ -91,13 +128,25 @@ const loadProfile = async () => {
       document.querySelector('.profile-info').appendChild(adminPanelButton);
     }
   } catch (error) {
-    localStorage.removeItem('authToken');
-    window.location.href = '/login.html';
+    console.error('Profile load exception:', error);
+    alert('Unable to load profile. Please check your connection.');
   }
 };
 
 window.toggleEditMode = toggleEditMode;
 window.saveProfile = saveProfile;
 window.cancelEdit = cancelEdit;
+
+const logout = () => {
+  localStorage.removeItem('authToken');
+  localStorage.removeItem('userRole');
+  localStorage.removeItem('userName');
+  localStorage.removeItem('userEmail');
+  localStorage.removeItem('userPhone');
+  localStorage.removeItem('userStatus');
+  window.location.href = '/login.html';
+};
+
+window.logout = logout;
 
 loadProfile();

@@ -62,6 +62,9 @@ loginForm.addEventListener('submit', async (e) => {
     localStorage.setItem('authToken', data.token);
     localStorage.setItem('userRole', data.role);
     localStorage.setItem('userName', data.user.name);
+    localStorage.setItem('userEmail', data.user.email);
+    localStorage.setItem('userPhone', data.user.phone);
+    localStorage.setItem('userStatus', data.user.status);
 
     loginForm.reset();
     clearError(loginError);

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Connection Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            padding: 2rem;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .test-section {
+            margin-bottom: 2rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .test-section h2 {
+            color: #667eea;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .test-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-left: 4px solid #ddd;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+
+        .test-item.success {
+            border-left-color: #28a745;
+            background: #d4edda;
+        }
+
+        .test-item.error {
+            border-left-color: #dc3545;
+            background: #f8d7da;
+        }
+
+        .test-item.loading {
+            border-left-color: #ffc107;
+            background: #fff3cd;
+        }
+
+        .test-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .status {
+            font-size: 0.9rem;
+            color: #666;
+            word-break: break-all;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        button {
+            flex: 1;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border-radius: 4px;
+            color: #0c5aa0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔗 API Connection Test</h1>
+        
+        <div class="info-box">
+            <strong>Instructions:</strong> This page tests the connection between your frontend and backend.
+            Make sure your backend server is running on port 3000 before testing.
+        </div>
+
+        <div class="test-section">
+            <h2>Environment Info</h2>
+            <div id="env-info" class="test-item">
+                <strong>Frontend URL:</strong>
+                <div class="status" id="frontend-url">Loading...</div>
+            </div>
+            <div class="test-item">
+                <strong>API Base URL:</strong>
+                <div class="status" id="api-url">Loading...</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Connection Tests</h2>
+            <div id="health-test" class="test-item loading">
+                <strong>🏥 Health Check</strong>
+                <div class="status">Testing...</div>
+            </div>
+            <div id="auth-test" class="test-item loading">
+                <strong>🔐 Auth Endpoint</strong>
+                <div class="status">Waiting...</div>
+            </div>
+            <div id="announcements-test" class="test-item loading">
+                <strong>📢 Announcements Endpoint</strong>
+                <div class="status">Waiting...</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test Results</h2>
+            <div id="results">
+                <div class="test-item" style="border-left-color: #667eea;">
+                    <div class="status">Click "Run Tests" to start...</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button class="btn-primary" onclick="runTests()">▶ Run Tests</button>
+            <button class="btn-secondary" onclick="clearResults()">✕ Clear</button>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+            ? 'http://localhost:3000'
+            : window.location.origin;
+
+        document.getElementById('frontend-url').textContent = window.location.href;
+        document.getElementById('api-url').textContent = API_BASE_URL;
+
+        const updateTest = (elementId, status, message) => {
+            const element = document.getElementById(elementId);
+            element.className = `test-item ${status}`;
+            element.innerHTML = `<strong>${element.querySelector('strong').textContent}</strong><div class="status">${message}</div>`;
+        };
+
+        const runTests = async () => {
+            document.getElementById('results').innerHTML = '';
+
+            // Test 1: Health Check
+            try {
+                const response = await fetch(`${API_BASE_URL}/health`, { method: 'GET' });
+                if (response.ok) {
+                    updateTest('health-test', 'success', '✅ Backend is responding');
+                } else {
+                    updateTest('health-test', 'error', `❌ Status: ${response.status}`);
+                }
+            } catch (error) {
+                updateTest('health-test', 'error', `❌ ${error.message}`);
+            }
+
+            // Test 2: Auth Endpoint
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name: 'test', password: 'test' })
+                });
+                updateTest('auth-test', 'success', `✅ Auth endpoint is responding (Status: ${response.status})`);
+            } catch (error) {
+                updateTest('auth-test', 'error', `❌ ${error.message}`);
+            }
+
+            // Test 3: Announcements Endpoint
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/announcements`);
+                if (response.ok) {
+                    const data = await response.json();
+                    updateTest('announcements-test', 'success', `✅ Announcements endpoint is responding (${data.announcements?.length || 0} announcements)`);
+                } else {
+                    updateTest('announcements-test', 'error', `❌ Status: ${response.status}`);
+                }
+            } catch (error) {
+                updateTest('announcements-test', 'error', `❌ ${error.message}`);
+            }
+
+            // Summary
+            addResult('✅ Tests Complete', 'All endpoints have been tested. Check the results above.');
+        };
+
+        const addResult = (title, message) => {
+            const resultsDiv = document.getElementById('results');
+            const resultItem = document.createElement('div');
+            resultItem.className = 'test-item success';
+            resultItem.innerHTML = `<strong>${title}</strong><div class="status">${message}</div>`;
+            resultsDiv.appendChild(resultItem);
+        };
+
+        const clearResults = () => {
+            document.getElementById('results').innerHTML = '<div class="test-item" style="border-left-color: #667eea;"><div class="status">Click "Run Tests" to start...</div></div>';
+            updateTest('health-test', 'loading', 'Testing...');
+            updateTest('auth-test', 'loading', 'Waiting...');
+            updateTest('announcements-test', 'loading', 'Waiting...');
+        };
+
+        // Auto-run tests on page load
+        window.addEventListener('load', () => {
+            setTimeout(runTests, 500);
+        });
+    </script>
+</body>
+</html>
